@@ -7,30 +7,33 @@
     <title>Document</title>
     <script src="js/vue.js"></script>
 </head>
+<style>
+    .activated{
+        color: brown;
+    }
+</style>
 <body>
     <div id="app">
-        <input type="text" v-model="inputValue">
-        <button v-on:click="handleBtnClick">确定</button>
-        <ul>
-            <li v-for="item in list">
-                {{item}}
-            </li>
-            
-        </ul>
+        <div :style="[styleObj,{fontSize:'50px'}]"
+        @click ="handDivClick"
+        >
+             GAOXING
+        </div>
     </div>
 </body>
 <script>
-    var app = new Vue({
+    var vm = new Vue({
         el:"#app",
         data:{
-            list:[],
-            inputValue:''
+            styleObj:{
+                color:"blue"
+            }
         },
         methods: {
-            handleBtnClick:function(){
-            this.list.push(this.inputValue),
-            this.inputValue=''
+            handDivClick:function(){
+                this.styleObj.color= this.styleObj.color ==="blue" ? "red" :"blue"
             }
+
         }
     })
 </script>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>组件传值非Props</title>
+ </head>
+ <script src="js/vue.js"></script>
+<body>
+    <div id="app">
+            <Child content="gao xing "></Child>
+    </div>
+</body>
+<script>
+
+    Vue.component('child',{
+            props:{
+                content:{
+                    type:String,
+                    required:false,
+                    default:'default value',
+                    vaildator:function(){
+                        return (value.length > 5)
+                    }
+                }
+            },
+            template:'<div>{{content}}</div>'
+    })
+    var vm = new Vue({
+        el:"#app",
+
+    })
+</script>
+</html>
